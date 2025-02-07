@@ -1,0 +1,80 @@
+--This project utilized data from the Netflix database stored at https://www.db-fiddle.com/f/pfsdrKi9cgCDp4Wwb77AF/0"
+
+--I searched for the quantity of movie titles in the database
+
+SELECT count(*)
+FROM "netflix_titles_info"
+WHERE type='Movie';
+
+--I used the following to search the most recent batch of tv shows and/or movies in the database.
+
+select max(date(date_added))
+FROM "netflix_titles_info";
+
+--This is a list of all the movies and tv shows on the database
+SELECT title
+FROM "netflix_titles_info"
+ORDER BY title asc;
+
+--This query identifies the oldest movie on the database
+SELECT title, release_year
+FROM "netflix_titles_info"
+WHERE type='Movie'
+ORDER BY release_year asc
+LIMIT 1;
+
+---the follow are infor from the database provided
+
+CREATE TABLE netflix_titles_info
+2
+    ("show_id" varchar(5), "type" varchar(7), "title" varchar(58), "country" varchar(74), "date_added" timestamp, "release_year" int, "rating" varchar(5), "duration" varchar(9), "listed_in" varchar(74))
+3
+;
+4
+​
+5
+CREATE TABLE netflix_people
+6
+    ("show_id" varchar(5), "director" varchar(54), "cast" varchar(532))
+7
+;
+8
+    
+9
+INSERT INTO netflix_titles_info
+10
+    ("show_id", "type", "title", "country", "date_added", "release_year", "rating", "duration", "listed_in")
+11
+VALUES
+12
+    ('s1', 'Movie', 'Dick Johnson Is Dead', 'United States', '2021-09-25 00:00:00', 2020, 'PG-13', '90 min', 'Documentaries'),
+13
+    ('s2', 'TV Show', 'Blood & Water', 'South Africa', '2021-09-24 00:00:00', 2021, 'TV-MA', '2 Seasons', 'International TV Shows | TV Dramas | TV Mysteries'),
+14
+    ('s3', 'TV Show', 'Ganglands', NULL, '2021-09-24 00:00:00', 2021, 'TV-MA', '1 Season', 'Crime TV Shows | International TV Shows | TV Action & Adventure'),
+15
+    ('s4', 'TV Show', 'Jailbirds New Orleans', NULL, '2021-09-24 00:00:00', 2021, 'TV-MA', '1 Season', 'Docuseries | Reality TV'),
+16
+    ('s5', 'TV Show', 'Kota Factory', 'India', '2021-09-24 00:00:00', 2021, 'TV-MA', '2 Seasons', 'International TV Shows | Romantic TV Shows | TV Comedies'),
+17
+    ('s6', 'TV Show', 'Midnight Mass', NULL, '2021-09-24 00:00:00', 2021, 'TV-MA', '1 Season', 'TV Dramas | TV Horror | TV Mysteries'),
+18
+    ('s7', 'Movie', 'My Little Pony: A New Generation', NULL, '2021-09-24 00:00:00', 2021, 'PG', '91 min', 'Children & Family Movies'),
+19
+    ('s8', 'Movie', 'Sankofa', 'United States | Ghana | Burkina Faso | United Kingdom | Germany | Ethiopia', '2021-09-24 00:00:00', 1993, 'TV-MA', '125 min', 'Dramas | Independent Movies | International Movies'),
+20
+    ('s9', 'TV Show', 'The Great British Baking Show', 'United Kingdom', '2021-09-24 00:00:00', 2021, 'TV-14', '9 Seasons', 'British TV Shows | Reality TV'),
+21
+    ('s10', 'Movie', 'The Starling', 'United States', '2021-09-24 00:00:00', 2021, 'PG-13', '104 min', 'Comedies | Dramas'),
+22
+    ('s11', 'TV Show', 'Vendetta: Truth  Lies and The Mafia', NULL, '2021-09-24 00:00:00', 2021, 'TV-MA', '1 Season', 'Crime TV Shows | Docuseries | International TV Shows'),
+23
+    ('s12', 'TV Show', 'Bangkok Breaking', NULL, '2021-09-23 00:00:00', 2021, 'TV-MA', '1 Season', 'Crime TV Shows | International TV Shows | TV Action & Adventure'),
+24
+    ('s13', 'Movie', 'Je Suis Karl', 'Germany | Czech Republic', '2021-09-23 00:00:00', 2021, 'TV-MA', '127 min', 'Dramas | International Movies'),
+25
+    ('s14', 'Movie', 'Confessions of an Invisible Girl', NULL, '2021-09-22 00:00:00', 2021, 'TV-PG', '91 min', 'Children & Family Movies | Comedies'),
+26
+    ('s15', 'TV Show', 'Crime Stories: India Detectives', NULL, '2021-09-22 00:00:00', 2021, 'TV-MA', '1 Season', 'British TV Shows | Crime TV Shows | Docuseries'),
+27
+    ('s16', 'TV Show', 'Dear White People', 'United States', '2021-09-22 00:00:00', 2021, 'TV-MA', '4 Seasons', 'TV Comedies | TV Dramas'),
