@@ -1,0 +1,19 @@
+List artist mames, track names, popularity, song key, and tempo, in order of popularity below the 90 percentile. 
+SELECT artist_name, track_name, popularity, song_key, tempo
+FROM BIT_DB.Spotifydata
+WHERE popularity <90
+ORDER BY popularity asc
+;
+--
+
+List the songs with a time signature of 3.
+SELECT artist_name, track_name, popularity, song_key, tempo, time_signature
+FROM BIT_DB.Spotifydata
+WHERE time_signature =3
+ORDER BY artist_name asc
+;
+--
+
+What is the average tempo of all the tracks on the spotify list
+SELECT AVG(tempo) AS average_tempo
+FROM BIT_DB.Spotifydata;
