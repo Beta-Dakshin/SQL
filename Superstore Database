@@ -1,3 +1,6 @@
+#SQL is being used to pull insights from the Superstore database by sorting items, 
+#filtering them by category, and calculating price statistics to better understand product trends.
+
 CREATE TABLE superstore (
     item_id INTEGER PRIMARY KEY,
     item_name TEXT,
